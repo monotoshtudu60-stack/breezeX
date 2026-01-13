@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zephyron Energy | BreezeX</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f7fa;
+}
+
+header{
+  background:#0a4d68;
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+
+nav{
+  background:#083344;
+  padding:12px;
+  text-align:center;
+}
+
+nav button{
+  background:none;
+  color:white;
+  border:none;
+  font-size:16px;
+  margin:0 12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+nav button:hover{
+  text-decoration:underline;
+}
+
+section{
+  display:none;
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.active{
+  display:block;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:8px;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0 15px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+button.action{
+  background:#0a4d68;
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button.action:hover{
+  background:#062f40;
+}
+
+footer{
+  background:#0a4d68;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Zephyron Energy</h1>
+  <p>"Design by us, powered by wind"</p>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('product')">Product</button>
+  <button onclick="showPage('order')">Place Order</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="card">
+    <h2>BreezeX – Vertical Wind Energy Generator</h2>
+    <p>
+      BreezeX is a vertical axis wind energy generator designed for silent, efficient, and reliable power generation even in low wind conditions.
+    </p>
+
+    <div class="gallery">
+      <img src="image1.jpeg">
+      <img src="image2.jpeg">
+      <img src="image3.jpeg">
+    </div>
+
+    <h3 style="margin-top:20px;">💰 Price: ₹94,500</h3>
+    <button class="action" onclick="showPage('order')">Place Your Order</button>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section id="product">
+  <div class="card">
+    <h2>About BreezeX</h2>
+    <p>
+      BreezeX is an advanced vertical axis wind energy generator engineered for efficient power generation in low to moderate wind conditions. Its compact and aerodynamic design allows smooth, silent operation while delivering reliable renewable energy for residential, commercial, and remote applications. Built with durable materials and minimal maintenance requirements, BreezeX offers a sustainable and cost-effective solution for clean energy generation, even in variable wind environments.
+    </p>
+    <img src="image1.jpeg" width="350">
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="card">
+    <h2>Order BreezeX</h2>
+
+    <p><b>Total Price:</b> ₹94,500</p>
+    <p><b>Advance Payment:</b> ₹5,000</p>
+
+    <h3>Customer Details</h3>
+    <input type="text" id="custName" placeholder="Full Name" required>
+    <input type="tel" id="custPhone" placeholder="Phone Number" required>
+    <textarea id="custAddress" placeholder="Delivery Address"></textarea>
+    <input type="text" id="custCity" placeholder="City">
+    <input type="text" id="custState" placeholder="State">
+
+    <h3>Pay Advance via UPI</h3>
+    <img src="paytm-qr.jpeg" width="220">
+
+    <p>After payment, click below to confirm</p>
+
+    <button class="action" onclick="confirmOrder()">
+      I Have Paid
+    </button>
+  </div>
+</section>
+
+<!-- SUCCESS -->
+<section id="success">
+  <div class="card" style="text-align:center;">
+    <h2>✅ Order Submitted</h2>
+    <p>Thank you for choosing BreezeX.</p>
+    <p>Our team will contact you shortly.</p>
+    <button class="action" onclick="showPage('home')">Back to Home</button>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Zephyron Energy. All Rights Reserved.</p>
+</footer>
+
+<script>
+function showPage(pageId){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(pageId).classList.add("active");
+}
+
+function confirmOrder(){
+  let name = custName.value;
+  let phone = custPhone.value;
+  let address = custAddress.value;
+  let city = custCity.value;
+  let state = custState.value;
+
+  if(name==="" || phone===""){
+    alert("Please enter name and phone number");
+    return;
+  }
+
+  let text =
+`Order for BreezeX
+Name: ${name}
+Phone: ${phone}
+Address: ${address}, ${city}, ${state}
+Product Price: ₹94,500
+Advance Paid: ₹5,000`;
+
+  // WhatsApp
+  window.open("https://wa.me/918509375958?text=" + encodeURIComponent(text), "_blank");
+
+  // Email
+  window.location.href =
+    "mailto:monotoshtudu1@gmail.com?subject=BreezeX Order&body=" +
+    encodeURIComponent(text);
+
+  showPage('success');
+}
+</script>
+
+</body>
+</html>
