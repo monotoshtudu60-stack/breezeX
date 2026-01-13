@@ -13,14 +13,14 @@ body{
 }
 
 header{
-  background:#0a4d68;
+  background:#068a0a;
   color:white;
   padding:25px;
   text-align:center;
 }
 
 nav{
-  background:#083344;
+  background:#339f67;
   padding:12px;
   text-align:center;
 }
@@ -98,6 +98,13 @@ footer{
   padding:15px;
   margin-top:30px;
 }
+
+/* Center product image */
+.product-bottom-image{
+  display:flex;
+  justify-content:center;
+  margin-top:30px;
+}
 </style>
 </head>
 
@@ -119,7 +126,8 @@ footer{
   <div class="card">
     <h2>BreezeX – Vertical Wind Energy Generator</h2>
     <p>
-      BreezeX is a vertical axis wind energy generator designed for silent, efficient, and reliable power generation even in low wind conditions.
+      BreezeX is a vertical axis wind energy generator designed for silent, efficient,
+      and reliable power generation even in low wind conditions.
     </p>
 
     <div class="gallery">
@@ -138,9 +146,39 @@ footer{
   <div class="card">
     <h2>About BreezeX</h2>
     <p>
-      BreezeX is an advanced vertical axis wind energy generator engineered for efficient power generation in low to moderate wind conditions. Its compact and aerodynamic design allows smooth, silent operation while delivering reliable renewable energy for residential, commercial, and remote applications. Built with durable materials and minimal maintenance requirements, BreezeX offers a sustainable and cost-effective solution for clean energy generation, even in variable wind environments.
+      BreezeX is an advanced vertical axis wind energy generator engineered for
+      efficient power generation in low to moderate wind conditions. Its compact
+      and aerodynamic design allows smooth, silent operation while delivering
+      reliable renewable energy for residential, commercial, and remote applications.
+      Built with durable materials and minimal maintenance requirements, BreezeX
+      offers a sustainable and cost-effective solution for clean energy generation,
+      even in variable wind environments.
     </p>
-    <img src="image1.jpeg" width="350">
+
+    <h3>Key Features</h3>
+    <p>
+      BreezeX is designed for efficient operation in low to moderate wind conditions.
+      Its compact, aerodynamic design enables smooth and silent performance.
+      It incorporates an Integrated Lightning Protection Feature for improved
+      safety and reliability.
+    </p>
+
+    <h3>Advantages</h3>
+    <ul>
+      <li>Efficient performance in low to moderate wind conditions</li>
+      <li>Smooth and silent operation suitable for residential areas</li>
+      <li>Reliable energy generation in variable and turbulent winds</li>
+      <li>Low maintenance and reduced operating costs</li>
+      <li>Durable construction ensuring long service life</li>
+      <li>Integrated Lightning Protection Feature for enhanced safety</li>
+      <li>Suitable for residential, commercial, and remote installations</li>
+      <li>Supports sustainable and clean energy generation</li>
+    </ul>
+
+    <!-- Product Image (350px width) -->
+    <div class="product-bottom-image">
+      <img src="image1.jpeg" width="350" alt="BreezeX Wind Turbine">
+    </div>
   </div>
 </section>
 
@@ -210,10 +248,11 @@ Address: ${address}, ${city}, ${state}
 Product Price: ₹94,500
 Advance Paid: ₹5,000`;
 
-  // WhatsApp
-  window.open("https://wa.me/918509375958?text=" + encodeURIComponent(text), "_blank");
+  window.open(
+    "https://wa.me/918509375958?text=" + encodeURIComponent(text),
+    "_blank"
+  );
 
-  // Email
   window.location.href =
     "mailto:monotoshtudu1@gmail.com?subject=BreezeX Order&body=" +
     encodeURIComponent(text);
